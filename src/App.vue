@@ -1,13 +1,20 @@
 <template>
-  <IndexComp />
+  <HeaderComp />
+
+  <main>
+    <IndexComp />
+  </main>
 </template>
 
 <script>
+import HeaderComp from './components/HeaderComp.vue';
 import IndexComp from './components/IndexComp.vue';
+
 export default {
   name: 'App',
   components: {
-    IndexComp
+    IndexComp,
+    HeaderComp
   },
   data() {
     return {

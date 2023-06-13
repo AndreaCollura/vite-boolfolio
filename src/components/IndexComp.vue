@@ -1,14 +1,27 @@
 <template>
     <div class="container ">
         <div class="row">
-            <div class="col" v-for="(project, index) in projects" :key="project.id">
+            <div class="col-3 mt-3" v-for="(project, index) in projects" :key="project.id">
                 <div class="card">
-                    <div class="card-title">
-                        <h1>{{ project.title }}</h1>
+                    <div class="card-title text-center text-capitalize">
+                        <h3>{{ project.title }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{ project.date }}</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <ul class="pagination">
+            <li class="page-item" v-if="currentPage == 1"><a class="page-link" href="#">Previous</a></li>
+            <li v-else class="page-item"><a class="page-link" @click="getData(currentPage - 1)" href="#">Previous</a></li>
+            <li class="page-item" v-for="n in lastPage"><a class="page-link" @click="getData(n)" href="#">{{ n }}</a></li>
+
+            <li class="page-item" v-if="currentPage == lastPage"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item" v-else><a class="page-link" @click="getData(currentPage + 1)" href="#">Next</a></li>
+        </ul>
     </div>
 </template>
 
@@ -37,12 +50,14 @@ export default {
             }).then((res) => {
                 /* console.log(res); */
                 this.projects = res.data.results.data;
+                this.currentPage = res.data.results.current_page;
+                this.lastPage = res.data.results.last_page;
                 /* console.log(this.projects); */
             })
         }
     },
     mounted() {
-        this.getData()
+        this.getData(1)
     }
 
 }
@@ -50,4 +65,18 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
+
+
+.pagination {
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 30px;
+
+
+    a {
+        color: black;
+    }
+}
 </style>
