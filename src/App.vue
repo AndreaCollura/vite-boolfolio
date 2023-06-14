@@ -1,4 +1,5 @@
 <template>
+  <LoadingComp v-if="isLoading"></LoadingComp>
   <HeaderComp />
 
   <main>
@@ -10,22 +11,30 @@
 
 <script>
 import HeaderComp from './components/HeaderComp.vue';
+import LoadingComp from './components/LoadingComp.vue';
 /* import ProjectList from './pages/ProjectList.vue'; */
 
 export default {
   name: 'App',
   components: {
     /*   */
-    HeaderComp
+    HeaderComp,
+    LoadingComp
   },
   data() {
     return {
+      isLoading: true
 
     }
   },
   methods: {
 
   },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+  }
 
 
 }
