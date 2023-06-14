@@ -9,6 +9,11 @@
                     <div class="card-body">
                         <p>{{ project.date }}</p>
                     </div>
+                    <div class="card-text">
+                        <router-link :to="{ name: 'singleproject', params: { slug: project.slug } }"
+                            class="btn btn-secondary">view
+                            details</router-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,7 +33,7 @@
 <script>
 import axios from 'axios';
 export default {
-    name: 'IndexComp',
+    name: 'ProjectList',
     components: {
 
     },

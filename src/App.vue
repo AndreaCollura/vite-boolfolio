@@ -2,18 +2,20 @@
   <HeaderComp />
 
   <main>
-    <IndexComp />
+
+    <router-view></router-view>
+    <!-- <ProjectList /> -->
   </main>
 </template>
 
 <script>
 import HeaderComp from './components/HeaderComp.vue';
-import IndexComp from './components/IndexComp.vue';
+/* import ProjectList from './pages/ProjectList.vue'; */
 
 export default {
   name: 'App',
   components: {
-    IndexComp,
+    /*   */
     HeaderComp
   },
   data() {

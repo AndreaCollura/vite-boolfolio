@@ -4,9 +4,15 @@
             <div class="logo">
                 <img src="../assets/styles/img/my-portfolio-logo.png" alt="">
             </div>
-            <!-- <div class="social-icons d-flex align-items-center">
-                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </div> -->
+            <div>
+                <ul class="d-flex ">
+                    <li v-for="(link, index) in navbar">
+                        <router-link :to="{ name: link.routeName }" active-class="active" class="nav-link me-5">{{
+                            link.label
+                        }}</router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
     </header>
 </template>
@@ -21,6 +27,25 @@ export default {
     },
     data() {
         return {
+
+            navbar: [
+                {
+                    label: 'Home',
+                    routeName: 'home'
+                },
+                {
+                    label: 'Projects',
+                    routeName: 'projects'
+                },
+                {
+                    label: 'About Us',
+                    routeName: 'aboutus'
+                },
+                {
+                    label: 'Contact Us',
+                    routeName: 'contactus'
+                }
+            ]
 
 
 
@@ -41,6 +66,7 @@ export default {
     background-color: $light-grey;
     margin-bottom: 30px;
 
+
     .logo {
         width: 160px;
         height: 60px;
@@ -49,38 +75,11 @@ export default {
             width: 100%;
             height: 100%;
             margin-left: 5px;
-
-        }
-
-    }
-
-    .social-icons {
-
-        width: 250px;
-        margin-right: 10px;
-        margin-left: 10px;
-
-        i {
-            padding: 5px 15px;
-            border-right: 1px solid $grey-bg ;
-            padding-right: 20px;
-            color: $grey-bg;
-            margin-right: 10px;
-            font-size: 1.2rem;
-
-        }
-
-        img {
-            width: 15px;
-            height: 15px;
-            margin: 0 10px;
-            object-fit: contain;
         }
     }
 
-
-
-
-
+    ul {
+        list-style: none;
+    }
 }
 </style>
