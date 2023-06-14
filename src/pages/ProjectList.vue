@@ -1,7 +1,7 @@
 <template>
     <div class="container text-capitalize">
         <div class="row">
-            <div class="col-3 mt-3" v-for="(project, index) in projects" :key="project.id">
+            <div class=" col-xl-3 col-md-6 col-sm-12 mt-3" v-for="(project, index) in projects" :key="project.id">
                 <div class="card">
                     <div class="card-title text-center text-capitalize">
                         <h5 class="mt-3">{{ project.title }}</h5>
@@ -77,6 +77,11 @@ export default {
 
     /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    &:hover {
+        scale: 1.1;
+        transition: 0.4s;
+    }
 
     .button {
         margin: 0 auto;
