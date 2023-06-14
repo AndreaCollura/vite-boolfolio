@@ -5,9 +5,9 @@
                 <img src="../assets/styles/img/my-portfolio-logo.png" alt="">
             </div>
             <div>
-                <ul class="d-flex ">
-                    <li v-for="(link, index) in navbar">
-                        <router-link :to="{ name: link.routeName }" active-class="active" class="nav-link me-5">{{
+                <ul class="d-flex my-0">
+                    <li class="nav-item" v-for="(link, index) in store.navbar">
+                        <router-link :to="{ name: link.routeName }" class="nav-link me-5" active-class="active">{{
                             link.label
                         }}</router-link>
                     </li>
@@ -18,37 +18,15 @@
 </template>
 
 <script>
-
+import { store } from '../data/store'
 export default {
     name: 'HeaderComp',
     components: {
 
-
     },
     data() {
         return {
-
-            navbar: [
-                {
-                    label: 'Home',
-                    routeName: 'home'
-                },
-                {
-                    label: 'Projects',
-                    routeName: 'projects'
-                },
-                {
-                    label: 'About Us',
-                    routeName: 'aboutus'
-                },
-                {
-                    label: 'Contact Us',
-                    routeName: 'contactus'
-                }
-            ]
-
-
-
+            store
         }
     },
     methods: {
@@ -62,9 +40,12 @@ export default {
 @use '../assets/styles/partials/variables' as *;
 
 .container-fluid {
-    height: 90px;
+    height: 100px;
     background-color: $light-grey;
     margin-bottom: 30px;
+    opacity: 0.7;
+
+
 
 
     .logo {
@@ -80,6 +61,9 @@ export default {
 
     ul {
         list-style: none;
+
+
+
     }
 }
 </style>

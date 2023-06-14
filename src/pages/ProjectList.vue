@@ -1,18 +1,20 @@
 <template>
-    <div class="container ">
+    <div class="container text-capitalize">
         <div class="row">
             <div class="col-3 mt-3" v-for="(project, index) in projects" :key="project.id">
                 <div class="card">
                     <div class="card-title text-center text-capitalize">
-                        <h3>{{ project.title }}</h3>
+                        <h5 class="mt-3">{{ project.title }}</h5>
                     </div>
                     <div class="card-body">
-                        <p>{{ project.date }}</p>
+                        <p>created : {{ project.date }}</p>
+                        <p>Framework : {{ project.type ? project.type.name : 'No Type' }}</p>
                     </div>
                     <div class="card-text">
                         <router-link :to="{ name: 'singleproject', params: { slug: project.slug } }"
-                            class="btn btn-secondary">view
-                            details</router-link>
+                            class="button d-flex justify-content-center align-items-center">
+                            View details
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -32,6 +34,7 @@
 
 <script>
 import axios from 'axios';
+import { store } from '../data/store'
 export default {
     name: 'ProjectList',
     components: {
@@ -39,16 +42,15 @@ export default {
     },
     data() {
         return {
-            title: 'ciao',
+            store,
             projects: [],
-            apiUrl: 'http://127.0.0.1:8000/api',
             currentPage: 1,
             lastPage: null,
         }
     },
     methods: {
         getData(numPage) {
-            axios.get(`${this.apiUrl}/projects`, {
+            axios.get(`${store.apiUrl}/projects`, {
                 params: {
                     'page': numPage
                 }
@@ -71,6 +73,29 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
 
+
+.button {
+    margin: 0 auto;
+    width: 130px;
+    height: 30px;
+    font-size: .8rem;
+    background-color: $light-grey;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid $grey-bg;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: $dark-grey;
+
+
+    a {
+        margin-top: 0;
+    }
+
+
+}
 
 .pagination {
 
