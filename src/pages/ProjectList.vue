@@ -73,29 +73,35 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
 
+.card {
 
-.button {
-    margin: 0 auto;
-    width: 130px;
-    height: 30px;
-    font-size: .8rem;
-    background-color: $light-grey;
-    font-weight: bold;
-    text-align: center;
-    border: 1px solid $grey-bg;
-    text-transform: uppercase;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: $dark-grey;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    .button {
+        margin: 0 auto;
+        width: 130px;
+        height: 30px;
+        font-size: .8rem;
+        background-color: $light-grey;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid $grey-bg;
+        text-transform: uppercase;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: $dark-grey;
 
 
-    a {
-        margin-top: 0;
+        a {
+            margin-top: 0;
+        }
+
+
     }
-
-
 }
+
 
 .pagination {
 
